@@ -99,9 +99,9 @@ class Service_video_search extends YoutubeService implements IService {
 		];
 		$response = $this->query($queryParams);
 		
-		$result['result'] = [];	
+		$result['result'] = ['items' => []];
 		foreach ($response->items as $item) {
-			$result['result'][] = [
+			$result['result']['items'][] = [
 				'channelTitle' => $item['snippet']->channelTitle,
 				'title' => $item['snippet']->title,
 				'videoID' => $item->id->videoId,
